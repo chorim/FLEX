@@ -20,6 +20,7 @@
 #import "FLEXGlobalsEntry.h"
 #import "FLEXManager+Private.h"
 #import "FLEXSystemLogViewController.h"
+#import "FLEXUnifiedLogViewController.h"
 #import "FLEXNetworkMITMViewController.h"
 #import "FLEXAddressExplorerCoordinator.h"
 #import "FLEXGlobalsSection.h"
@@ -99,6 +100,8 @@
             return [FLEXObjectExplorerFactory flex_concreteGlobalsEntry:row];
         
         case FLEXGlobalsRowCount: break;
+        case FLEXGlobalsRowUnifiedLogger:
+          return [FLEXUnifiedLogViewController flex_concreteGlobalsEntry:row];
     }
     
     @throw [NSException
@@ -115,6 +118,7 @@
             @(FLEXGlobalsSectionProcessAndEvents) : @[
                 [self globalsEntryForRow:FLEXGlobalsRowNetworkHistory],
                 [self globalsEntryForRow:FLEXGlobalsRowSystemLog],
+                [self globalsEntryForRow:FLEXGlobalsRowUnifiedLogger],
                 [self globalsEntryForRow:FLEXGlobalsRowProcessInfo],
                 [self globalsEntryForRow:FLEXGlobalsRowLiveObjects],
                 [self globalsEntryForRow:FLEXGlobalsRowAddressInspector],
