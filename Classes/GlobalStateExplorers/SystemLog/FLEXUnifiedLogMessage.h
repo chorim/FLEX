@@ -6,15 +6,12 @@
 //
 
 #import <Foundation/Foundation.h>
-#import <OSLog/OSLog.h>
 
 NS_ASSUME_NONNULL_BEGIN
 
 typedef NS_ENUM(NSUInteger, FLEXUnifiedLogLevel) {
-    FLEXUnifiedLogLevelTrace,
     FLEXUnifiedLogLevelDebug,
     FLEXUnifiedLogLevelInfo,
-    FLEXUnifiedLogLevelNotice,
     FLEXUnifiedLogLevelWarning,
     FLEXUnifiedLogLevelError,
     FLEXUnifiedLogLevelCritical
@@ -23,13 +20,12 @@ typedef NS_ENUM(NSUInteger, FLEXUnifiedLogLevel) {
 @interface FLEXUnifiedLogMessage : NSObject
 
 + (instancetype)logMessageFromDate:(NSDate *)date text:(NSString *)text;
-
-@property (nonatomic, readonly, nullable) NSString *sender;
++ (instancetype)logMessageFromMessage:(NSString *)text logLevel:(FLEXUnifiedLogLevel)logLevel;
 
 @property (nonatomic) FLEXUnifiedLogLevel *logLevel;
 @property (nonatomic, readonly) NSDate *date;
 @property (nonatomic, readonly) NSString *messageText;
-@property (nonatomic, readonly) long long messageId;
+@property (nonatomic, readonly) NSUUID *messageId;
 
 @end
 

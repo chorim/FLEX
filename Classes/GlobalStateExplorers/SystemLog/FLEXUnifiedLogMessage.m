@@ -10,16 +10,29 @@
 @implementation FLEXUnifiedLogMessage
 
 + (instancetype)logMessageFromDate:(NSDate *)date text:(NSString *)text {
-    return [[self alloc] initWithDate:date sender:nil text:text messageId:0];
+    NSUUID *uuid = [[NSUUID UUID] init];
+    return [[self alloc] initWithDate:date
+                                 text:text
+                                 uuid:uuid
+                             logLevel:FLEXUnifiedLogLevelDebug];
 }
 
-- (id)initWithDate:(NSDate *)date sender:(NSString *)sender text:(NSString *)text messageId:(long long)identifier {
++ (instancetype)logMessageFromMessage:(NSString *)text logLevel:(FLEXUnifiedLogLevel)logLevel {
+    NSDate *now = [NSDate date];
+    NSUUID *uuid = [[NSUUID UUID] init];
+    return [[self alloc] initWithDate:now
+                                 text:text
+                                 uuid:uuid
+                             logLevel:logLevel];
+}
+
+- (id)initWithDate:(NSDate *)date text:(NSString *)text uuid:(NSUUID*)uuid logLevel:(FLEXUnifiedLogLevel)logLevel {
     self = [super init];
     if (self) {
         _date = date;
-        _sender = sender;
         _messageText = text;
-        _messageId = identifier;
+        _messageId = uuid;
+        _logLevel = logLevel;
     }
     return self;
 }

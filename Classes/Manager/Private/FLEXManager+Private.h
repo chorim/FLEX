@@ -9,7 +9,7 @@
 #import "FLEXManager.h"
 #import "FLEXWindow.h"
 
-@class FLEXGlobalsEntry, FLEXExplorerViewController;
+@class FLEXGlobalsEntry, FLEXExplorerViewController, FLEXUnifiedLogMessage;
 
 @interface FLEXManager (Private)
 
@@ -19,5 +19,5 @@
 /// An array of FLEXGlobalsEntry objects that have been registered by the user.
 @property (nonatomic, readonly) NSMutableArray<FLEXGlobalsEntry *> *userGlobalEntries;
 @property (nonatomic, readonly) NSMutableDictionary<NSString *, FLEXCustomContentViewerFuture> *customContentTypeViewers;
-
+@property (nonatomic) NSArray<FLEXUnifiedLogMessage *> *unifiedLogMessages;
 @end

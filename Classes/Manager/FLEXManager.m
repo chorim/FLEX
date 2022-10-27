@@ -13,6 +13,8 @@
 #import "FLEXNavigationController.h"
 #import "FLEXObjectExplorerFactory.h"
 #import "FLEXFileBrowserController.h"
+#import "FLEXUnifiedLogMessage.h"
+#import "FLEXMutableListSection.h"
 
 @interface FLEXManager () <FLEXWindowEventDelegate, FLEXExplorerViewControllerDelegate>
 
@@ -42,6 +44,7 @@
     if (self) {
         _userGlobalEntries = [NSMutableArray new];
         _customContentTypeViewers = [NSMutableDictionary new];
+        _unifiedLogMessages = [NSMutableArray new];
     }
     return self;
 }

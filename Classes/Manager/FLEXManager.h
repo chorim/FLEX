@@ -8,6 +8,8 @@
 
 #import "FLEXExplorerToolbar.h"
 
+@class FLEXUnifiedLogMessage;
+
 NS_ASSUME_NONNULL_BEGIN
 
 @interface FLEXManager : NSObject
@@ -16,6 +18,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property (nonatomic, readonly) BOOL isHidden;
 @property (nonatomic, readonly) FLEXExplorerToolbar *toolbar;
+@property (nonatomic) NSMutableArray<FLEXUnifiedLogMessage *> *unifiedLogMessages;
 
 - (void)showExplorer;
 - (void)hideExplorer;
