@@ -44,7 +44,7 @@
     if (self) {
         _userGlobalEntries = [NSMutableArray new];
         _customContentTypeViewers = [NSMutableDictionary new];
-        _unifiedLogMessages = [NSMutableArray new];
+        _unifiedLogMessages = [NSMutableArray array];
     }
     return self;
 }
