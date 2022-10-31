@@ -10,11 +10,11 @@
 NS_ASSUME_NONNULL_BEGIN
 
 typedef NS_ENUM(NSUInteger, FLEXUnifiedLogLevel) {
-    FLEXUnifiedLogLevelDebug,
-    FLEXUnifiedLogLevelInfo,
-    FLEXUnifiedLogLevelWarning,
-    FLEXUnifiedLogLevelError,
-    FLEXUnifiedLogLevelCritical
+    FLEXUnifiedLogLevelDebug = 0,
+    FLEXUnifiedLogLevelInfo = 1,
+    FLEXUnifiedLogLevelWarning = 2,
+    FLEXUnifiedLogLevelError = 3,
+    FLEXUnifiedLogLevelCritical = 4
 };
 
 @interface FLEXUnifiedLogMessage : NSObject
