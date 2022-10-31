@@ -7,7 +7,10 @@
 
 #import "FLEXFilteringTableViewController.h"
 #import "FLEXGlobalsEntry.h"
+#import "FLEXUnifiedLogMessage.h"
 
 @interface FLEXUnifiedLogViewController : FLEXFilteringTableViewController<FLEXGlobalsEntry>
+
+@property (nonatomic) void (^updateHandler)(NSArray<FLEXUnifiedLogMessage *> *);
 
 @end
