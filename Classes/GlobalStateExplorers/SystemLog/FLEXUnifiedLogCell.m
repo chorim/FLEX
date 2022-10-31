@@ -65,7 +65,7 @@ static const UIEdgeInsets kFLEXUnifiedMessageCellInsets = {10.0, 10.0, 10.0, 10.
 }
 
 + (NSString *)displayedTextForLogMessage:(FLEXUnifiedLogMessage *)logMessage {
-    return [NSString stringWithFormat:@"%@: %@", [self logTimeStringFromDate:logMessage.date], logMessage.messageText];
+  return [NSString stringWithFormat:@"%@: %@ %s \n%@", [self logTimeStringFromDate:logMessage.date], [self logLevelStringFromLevel:logMessage.logLevel], __FILE__, logMessage.messageText];
 }
 
 + (CGFloat)preferredHeightForLogMessage:(FLEXUnifiedLogMessage *)logMessage inWidth:(CGFloat)width {
@@ -78,6 +78,21 @@ static const UIEdgeInsets kFLEXUnifiedMessageCellInsets = {10.0, 10.0, 10.0, 10.
 
 + (NSString *)logTimeStringFromDate:(NSDate *)date {
     return [NSDateFormatter flex_stringFrom:date format:FLEXDateFormatVerbose];
+}
+
++ (NSString *)logLevelStringFromLevel:(FLEXUnifiedLogLevel)level {
+  switch (level) {
+    case FLEXUnifiedLogLevelDebug:
+      return @"🐛DEBUG";
+    case FLEXUnifiedLogLevelInfo:
+      return @"ℹ️INFO";
+    case FLEXUnifiedLogLevelWarning:
+      return @"⚠️WARNING";
+    case FLEXUnifiedLogLevelError:
+      return @"❌ERROR";
+    case FLEXUnifiedLogLevelCritical:
+      return @"🚨CRITICAL";
+  }
 }
 
 #pragma mark - Stateless helpers
